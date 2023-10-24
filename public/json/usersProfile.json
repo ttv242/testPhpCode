@@ -1,0 +1,94 @@
+{
+  "usersProfile": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "username": "johndoe",
+      "password": "password1",
+      "email": "johndoe@example.com",
+      "age": 25,
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "username": "janesmith",
+      "password": "password2",
+      "email": "janesmith@example.com",
+      "age": 30,
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "name": "David Johnson",
+      "username": "davidjohnson",
+      "password": "password3",
+      "email": "davidjohnson@example.com",
+      "age": 35,
+      "role": "user"
+    },
+    {
+      "id": 4,
+      "name": "Sarah Williams",
+      "username": "sarahwilliams",
+      "password": "password4",
+      "email": "sarahwilliams@example.com",
+      "age": 28,
+      "role": "user"
+    },
+    {
+      "id": 5,
+      "name": "Michael Brown",
+      "username": "michaelbrown",
+      "password": "password5",
+      "email": "michaelbrown@example.com",
+      "age": 32,
+      "role": "user"
+    },
+    {
+      "id": 6,
+      "name": "Emily Davis",
+      "username": "emilydavis",
+      "password": "password6",
+      "email": "emilydavis@example.com",
+      "age": 27,
+      "role": "user"
+    },
+    {
+      "id": 7,
+      "name": "Daniel Miller",
+      "username": "danielmiller",
+      "password": "password7",
+      "email": "danielmiller@example.com",
+      "age": 29,
+      "role": "user"
+    },
+    {
+      "id": 8,
+      "name": "Olivia Wilson",
+      "username": "oliviawilson",
+      "password": "password8",
+      "email": "oliviawilson@example.com",
+      "age": 31,
+      "role": "user"
+    },
+    {
+      "id": 9,
+      "name": "James Taylor",
+      "username": "jamestaylor",
+      "password": "password9",
+      "email": "jamestaylor@example.com",
+      "age": 33,
+      "role": "user"
+    },
+    {
+      "id": 10,
+      "name": "Sophia Anderson",
+      "username": "sophiaanderson",
+      "password": "password10",
+      "email": "sophiaanderson@example.com",
+      "age": 26,
+      "role": "user"
+    }
+  ]
+}

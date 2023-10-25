@@ -5,6 +5,8 @@ spl_autoload_register(function ($class) {
     require "controllers/" . $class . ".php";
 });
 CONST project = "/projectPhp/";
+const BASE_DIR = __DIR__;
+define('PUBLIC_URL', '/public/');
 
 
 $router = [
@@ -15,7 +17,7 @@ $router = [
         'about' => [new PagesController, 'about'],
         'news' => [new PagesController, 'news'],
         'contact'  => [new PagesController, 'contact'],
-        'errors' => [new PagesController, 'errors'],
+        'errors/404' => [new PagesController, 'notFound'],
 
         // usersController
         'register' => [new usersController, 'register'],
@@ -25,11 +27,14 @@ $router = [
         'changepassword' => [new usersController, 'changePassword'],
         
         'userprofile' => [new usersController, 'userProfile'],
+        'updateuserprofile' => [new usersController, 'updateUserProfile'],
         
         
     ],
     'post' => [
+        'register_' => [new usersController, 'register_'],
         'login_' => [new usersController, 'login_'],
+        'updateuserprofile_' => [new usersController, 'updateUserProfile_'],
 
     ]
 ];

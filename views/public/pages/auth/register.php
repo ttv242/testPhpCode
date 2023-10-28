@@ -190,24 +190,8 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Input group-->
                             <div class="fv-row mb-7">
                                 <label class="form-label fw-bold text-dark fs-6">Họ và tên</label>
-                                <input class="form-control form-control-lg form-control-solid" type="email"
-                                    placeholder="" name="name" autocomplete="off" />
-                            </div>
-                            <!--end::Input group-->
-
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                                <label class="form-label fw-bold text-dark fs-6">Email</label>
-                                <input class="form-control form-control-lg form-control-solid" type="email"
-                                    placeholder="" name="email" autocomplete="off" />
-                            </div>
-                            <!--end::Input group-->
-
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                                <label class="form-label fw-bold text-dark fs-6">Ngày sinh</label>
-                                <input class="form-control form-control-lg form-control-solid" type="date"
-                                    placeholder="" name="birthday" autocomplete="off" />
+                                <input class="form-control form-control-lg form-control-solid" type="text"
+                                    placeholder="" name="full_name" autocomplete="off" />
                             </div>
                             <!--end::Input group-->
 

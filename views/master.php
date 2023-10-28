@@ -127,23 +127,24 @@ License: For each use you must have a valid license purchased only from above li
                                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold">
 
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-white fw-bold lh-1">
+                                    <!-- <li class="breadcrumb-item text-white fw-bold lh-1">
                                         <a href="index.html" class="text-white text-hover-primary">
                                             <i class="ki-duotone ki-home fs-3 text-white me-n1"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <!--end::Item-->
 
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item">
+                                    <!-- <li class="breadcrumb-item">
                                         <i class="ki-duotone ki-right fs-4 text-white mx-n1"></i>
-                                    </li>
+                                    </li> -->
                                     <!--end::Item-->
 
 
                                     <!--begin::Item-->
-                                    <li class="breadcrumb-item text-white fw-bold lh-1">
-                                        Dashboards </li>
+                                    <!-- <li class="breadcrumb-item text-white fw-bold lh-1">
+                                        <?= $title ?> 
+                                    </li> -->
                                     <!--end::Item-->
 
 
@@ -164,8 +165,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <h1 class="page-heading d-flex fs-2 flex-column justify-content-center my-0">
                                         <?= $title ?>
                                         <!--begin::Description-->
-                                        <span class="page-desc fs-6 pt-2">
-                                            Power Elite Seller </span>
+                                        <!-- <span class="page-desc fs-6 pt-2">
+                                            Power Elite Seller </span> -->
                                         <!--end::Description-->
                                     </h1>
                                     <!--end::Title-->
@@ -181,7 +182,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Number-->
 
                                         <!--begin::Section-->
-                                        <div class="item-desc">Avg. Monthly Sales</div>
+                                        <div class="item-desc">Số dư còn lại</div>
                                         <!--end::Section-->
                                     </div>
                                     <!--end::Item-->
@@ -192,7 +193,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Number-->
 
                                         <!--begin::Section-->
-                                        <div class="item-desc">Today Spending</div>
+                                        <div class="item-desc">Chi tiêu hôm nay</div>
                                         <!--end::Section-->
                                     </div>
                                     <!--end::Item-->
@@ -203,7 +204,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Number-->
 
                                         <!--begin::Section-->
-                                        <div class="item-desc">Overall Share</div>
+                                        <div class="item-desc">Phần trăm hôm nay</div>
                                         <!--end::Section-->
                                     </div>
                                     <!--end::Item-->
@@ -214,7 +215,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Number-->
 
                                         <!--begin::Section-->
-                                        <div class="item-desc">7 Days</div>
+                                        <div class="item-desc">Phần trăm hôm nay 7 ngày</div>
                                         <!--end::Section-->
                                     </div>
                                     <!--end::Item-->

@@ -12,7 +12,7 @@
             <!--begin: Pic-->
             <div class="me-7 mb-4">
                 <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                    <img src="/axel-html-pro/assets/media/avatars/300-3.jpg" alt="image" />
+                    <img src="<?= PUBLIC_URL ?>media/avatars/300-3.jpg" alt="image" />
                     <div
                         class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
                     </div>
@@ -28,13 +28,28 @@
                     <div class="d-flex flex-column">
                         <!--begin::Name-->
                         <div class="d-flex align-items-center mb-2">
-                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $_SESSION['name'] ?></a>
+                            <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1"><?= $data['full_name'] ?></a>
                             <a href="#"><i class="ki-duotone ki-verify fs-1 text-primary"><span
                                         class="path1"></span><span class="path2"></span></i></a>
 
-                            <a href="#" class="btn btn-sm btn-light-success fw-bold ms-2 fs-8 py-1 px-3"
+                            <!-- <a href="#" class="btn btn-sm btn-light-success fw-bold ms-2 fs-8 py-1 px-3"
                                 data-bs-toggle="modal" data-bs-target="#kt_modal_upgrade_plan" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_upgrade_plan">Upgrade to Pro</a>
+                                data-bs-target="#kt_modal_upgrade_plan">Upgrade to Pro</a> -->
+                                <?php
+                                if ($data["nickname"] != 'Chưa cập nhật') {
+                                    ?>
+                                        
+                                                <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"><?= $data["nickname"] ?></span>
+                                            
+                                            <?php
+                                } else {
+                                    ?>
+
+                                                <span class="badge badge-light-danger fw-bold fs-8 px-2 py-1 ms-2"><?= $data["nickname"] ?></span>
+
+                                            <?php
+                                }
+                                ?>
                         </div>
                         <!--end::Name-->
 
@@ -42,15 +57,15 @@
                         <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                 <i class="ki-duotone ki-profile-circle fs-4 me-1"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span></i> React Developer
+                                        class="path2"></span><span class="path3"></span></i> <?= $data["job_title"] ?>
                             </a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                 <i class="ki-duotone ki-geolocation fs-4 me-1"><span class="path1"></span><span
-                                        class="path2"></span></i> SF, Bay Area
+                                        class="path2"></span></i> <?= $data["address"] ?>
                             </a>
                             <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
                                 <i class="ki-duotone ki-sms fs-4 me-1"><span class="path1"></span><span
-                                        class="path2"></span></i> <?= $_SESSION['email'] ?>
+                                        class="path2"></span></i> <?= $data['email'] ?>
                             </a>
                         </div>
                         <!--end::Info-->
@@ -63,7 +78,7 @@
                             <i class="ki-duotone ki-check fs-2 d-none"></i>
                             <!--begin::Indicator label-->
                             <span class="indicator-label">
-                                Follow</span>
+                                Theo dõi</span>
                             <!--end::Indicator label-->
 
                             <!--begin::Indicator progress-->
@@ -266,13 +281,13 @@
                     <!--begin::Progress-->
                     <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
                         <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                            <span class="fw-semibold fs-6 text-gray-400">Profile Compleation</span>
-                            <span class="fw-bold fs-6">50%</span>
+                            <span class="fw-semibold fs-6 text-gray-400">Hoàn thiện hồ sơ</span>
+                            <span class="fw-bold fs-6"><?= $percent ?>%</span>
                         </div>
 
                         <div class="h-5px mx-3 w-100 bg-light mb-3">
-                            <div class="bg-success rounded h-5px" role="progressbar" style="width: 50%;"
-                                aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="bg-success rounded h-5px" role="progressbar" style="width: <?= $percent ?>%;"
+                                aria-valuenow="<?= $percent ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <!--end::Progress-->
@@ -288,7 +303,7 @@
             <!--begin::Nav item-->
             <li class="nav-item mt-2">
                 <a class="nav-link text-active-primary ms-0 me-10 py-5 active"
-                    href="<?= project . 'userprofile?username=' . $_SESSION['username']?>">
+                    href="<?= project . 'userprofile?username=' . $data['username'] ?>">
                     Tổng quan </a>
             </li>
             <!--end::Nav item-->
@@ -356,13 +371,14 @@
         <!--end::Card title-->
 
         <!--begin::Action-->
-        <a href="<?= project . 'updateUserprofile?username=' . $_SESSION['username']?>" class="btn btn-sm btn-primary align-self-center">Chỉnh sửa hồ sơ</a>
+        <a href="<?= project . 'updateUserprofile?username=' . $data['username'] ?>" class="btn btn-sm btn-primary align-self-center">Chỉnh sửa hồ sơ</a>
         <!--end::Action-->
     </div>
     <!--begin::Card header-->
 
     <!--begin::Card body-->
     <div class="card-body p-9">
+        
         <!--begin::Row-->
         <div class="row mb-7">
             <!--begin::Label-->
@@ -371,7 +387,35 @@
 
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800"><?= $_SESSION['name'] ?></span>
+                <span class="fw-bold fs-6 text-gray-800"><?= $data['full_name'] ?></span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Row-->
+        
+        <!--begin::Row-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Biệt danh</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800"><?= $data['nickname'] ?></span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Row-->
+
+        <!--begin::Row-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Ngày sinh</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <span class="fw-bold fs-6 text-gray-800"><?= $data['date_of_birth'] ?></span>
             </div>
             <!--end::Col-->
         </div>
@@ -380,12 +424,26 @@
         <!--begin::Input group-->
         <div class="row mb-7">
             <!--begin::Label-->
-            <label class="col-lg-4 fw-semibold text-muted">Công ty</label>
+            <label class="col-lg-4 fw-semibold text-muted">Nghề nghiệp</label>
             <!--end::Label-->
 
             <!--begin::Col-->
             <div class="col-lg-8 fv-row">
-                <span class="fw-semibold text-gray-800 fs-6">FPT</span>
+                <span class="fw-semibold text-gray-800 fs-6"><?= $data['job_title'] ?></span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Nơi làm việc</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8 fv-row">
+                <span class="fw-semibold text-gray-800 fs-6"><?= $data['workplace'] ?></span>
             </div>
             <!--end::Col-->
         </div>
@@ -405,8 +463,22 @@
 
             <!--begin::Col-->
             <div class="col-lg-8 d-flex align-items-center">
-                <span class="fw-bold fs-6 text-gray-800 me-2">044 3276 454 935</span>
+                <span class="fw-bold fs-6 text-gray-800 me-2"><?= $data['phone_number'] ?></span>
                 <span class="badge badge-success">Verified</span>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Facebook</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['facebook'] ?></a>
             </div>
             <!--end::Col-->
         </div>
@@ -420,7 +492,35 @@
 
             <!--begin::Col-->
             <div class="col-lg-8">
-                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $_SESSION['email'] ?></a>
+                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['email'] ?></a>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+        
+                <!--begin::Input group-->
+                <div class="row mb-7">
+                    <!--begin::Label-->
+                    <label class="col-lg-4 fw-semibold text-muted">Tên ngân hàng</label>
+                    <!--end::Label-->
+        
+                    <!--begin::Col-->
+                    <div class="col-lg-8">
+                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['account_type'] ?></a>
+                    </div>
+                    <!--end::Col-->
+                </div>
+                <!--end::Input group-->
+        
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Số tài khoản ngân hàng</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['account_number'] ?></a>
             </div>
             <!--end::Col-->
         </div>
@@ -440,12 +540,39 @@
 
             <!--begin::Col-->
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-800">Germany</span>
+                <span class="fw-bold fs-6 text-gray-800"><?= $data['address'] ?></span>
             </div>
             <!--end::Col-->
         </div>
         <!--end::Input group-->
+    
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Ngày tạo tài khoản</label>
+            <!--end::Label-->
 
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['created_at'] ?></a>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
+        
+        <!--begin::Input group-->
+        <div class="row mb-7">
+            <!--begin::Label-->
+            <label class="col-lg-4 fw-semibold text-muted">Cập nhật tài khoản (gần nhất)</label>
+            <!--end::Label-->
+
+            <!--begin::Col-->
+            <div class="col-lg-8">
+                <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary"><?= $data['updated_at'] ?></a>
+            </div>
+            <!--end::Col-->
+        </div>
+        <!--end::Input group-->
 
         <!--begin::Notice-->
         <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed  p-6">
@@ -457,10 +584,10 @@
             <div class="d-flex flex-stack flex-grow-1 ">
                 <!--begin::Content-->
                 <div class=" fw-semibold">
-                    <h4 class="text-gray-900 fw-bold">Hồ sơ chưa hoàn thiện!</h4>
+                    <h4 class="text-gray-900 fw-bold">Hồ sơ <?= $percent ?>% chưa hoàn thiện!</h4>
 
-                    <div class="fs-6 text-gray-700 ">Vui lòng cập nhật thông tin chi tiết để hoàn chỉnh hồ sơ chi tiếttiết<a
-                            class="fw-bold" href="/axel-html-pro/account/billing.html">Chỉnh sửa hồ sơ</a>.</div>
+                    <div class="fs-6 text-gray-700 ">Vui lòng cập nhật thông tin chi tiết để hoàn chỉnh 100% hồ sơ chi tiết (<?= $count ?> mục chưa cập nhật) 
+                    <!-- <a class="fw-bold" href="/axel-html-pro/account/billing.html">Chỉnh sửa hồ sơ</a>.</div> -->
                 </div>
                 <!--end::Content-->
 
@@ -626,9 +753,9 @@
 
                     <!--begin::Illustration-->
                     <div class="py-10 text-center">
-                        <img src="/axel-html-pro/assets/media/svg/illustrations/easy/1.svg"
+                        <img src="<?= PUBLIC_URL ?>media/svg/illustrations/easy/1.svg"
                             class="theme-light-show w-200px" alt="" />
-                        <img src="/axel-html-pro/assets/media/svg/illustrations/easy/1-dark.svg"
+                        <img src="<?= PUBLIC_URL ?>media/svg/illustrations/easy/1-dark.svg"
                             class="theme-dark-show w-200px" alt="" />
                     </div>
                     <!--end::Illustration-->
@@ -694,7 +821,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/210.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/210.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
@@ -842,7 +969,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/209.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/209.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
@@ -990,7 +1117,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/214.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/214.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
@@ -1138,7 +1265,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/211.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/211.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
@@ -1286,7 +1413,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/215.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/215.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
@@ -1434,7 +1561,7 @@
                             <!--begin::Wrapper-->
                             <div class="me-3">
                                 <!--begin::Icon-->
-                                <img src="/axel-html-pro/assets/media/stock/ecommerce/192.png" class="w-50px ms-n1 me-1"
+                                <img src="<?= PUBLIC_URL ?>media/stock/ecommerce/192.png" class="w-50px ms-n1 me-1"
                                     alt="" />
                                 <!--end::Icon-->
 
